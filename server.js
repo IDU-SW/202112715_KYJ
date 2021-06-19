@@ -6,7 +6,7 @@ app.listen(3000, () => {
 });
 
 app.use((req, res) => {
-	res.send({msg:'Hello'});
+	res.send({msg:'Hello node'});
 });
 
 
