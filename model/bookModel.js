@@ -34,26 +34,8 @@ exports.insertBook = async (data) => {
     }
 }
 
-exports.deleteTodoList = async(todo_no) => {
-    const sql = 'DELETE FROM todo WHERE todo_no= ?';
-    const data = [todo_no]; 
-    let conn;
-    try {
-        conn = await pool.getConnection();        
-        const ret = await conn.query(sql, data);
-        const info = ret[0];
-        console.log('삭제 대상 Row(affectedRows) :', info['affectedRows']);
-        return info;
-    } catch (error) {
-        console.error(error);  
-    } finally {
-        if ( conn ) conn.release();
-    }
-}
-
-exports.updateTodoListDetail = async(todo_title,todo_content,todo_no,todo_status) => {
-    const sql = 'update todo set todo_status=?, todo_title=?, todo_content=? where todo_no=?';
-    const data = [todo_status, todo_title, todo_content, todo_no];
+exports.updateBook = async(data) => {
+    const sql = 'update book set book_title=?, book_content=?, book_authors=?, book_date=?, book_publisher=?, book_price=? where book_no=?';
     let conn;
     try{
         conn = await pool.getConnection();
@@ -66,3 +48,4 @@ exports.updateTodoListDetail = async(todo_title,todo_content,todo_no,todo_status
         if ( conn ) conn.release();
     }
 }
+

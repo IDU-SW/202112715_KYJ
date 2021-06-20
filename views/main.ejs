@@ -21,7 +21,6 @@
       </thead>
       <tbody>
         <% books.forEach(function(item) { %>
-
           <tr>
             <th><!-- Edit modal -->
               <a style="float: left;" class="edit" data-bs-toggle="modal"
@@ -40,8 +39,6 @@
             </td>
           </tr>
 
-       
-
           <!-- Edit modal -->
           <div class="modal fade" id="editeModal<%= item.book_no%>" tabindex="-1" aria-labelledby="editeModalLabel"
             aria-hidden="true">
@@ -53,7 +50,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form class="form-inline" action="/edit/<%=item.book_no%>" method="POST">
+                  <form class="form-inline" action="/<%=item.book_no%>" method="POST">
                     <div class="mb-3">
                       <label for="book_title" class="col-form-label">title</label>
                       <input type="text" class="form-control" id="book_title" name="book_title"
@@ -91,6 +88,7 @@
                       &nbsp;
                       <input style="float: right;margin-left: 10px;" type="submit" class="btn btn-primary" onclick="return confirm('수정하시겠습니까?');"
                       value="수정" />
+                      &nbsp;
                       <input style="float: right;" type="button" class="btn btn-secondary" value="Close"
                         data-bs-dismiss="modal" />&nbsp;
                     </div>
