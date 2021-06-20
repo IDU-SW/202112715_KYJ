@@ -7,6 +7,7 @@ const dbConfig = {
    port: 3306,
    database: 'example',
    multipleStatements: true,
+   dateStrings:"date"
 };
 
 const pool = mysql.createPool(dbConfig).promise();

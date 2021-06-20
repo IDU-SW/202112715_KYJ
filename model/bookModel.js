@@ -1,7 +1,7 @@
 const pool = require('../db/dbConnection');
 
-exports.getTodoList = async () => {
-    const sql = 'SELECT * FROM todo order by todo_status desc';
+exports.selectBookList = async () => {
+    const sql = 'SELECT * FROM book';
 
     let conn;
     try {
@@ -17,17 +17,16 @@ exports.getTodoList = async () => {
 }    
 
 
-exports.insertTodoList = async (todo_title, todo_content, todo_status) => {
-    const sql = 'INSERT INTO todo (todo_title,todo_content,todo_status) VALUES(?,?,?)';
-    const data= [todo_title, todo_content,todo_status];
-
+exports.insertBook = async (data) => {
+    console.log("insert Book",data);
+    const sql = 'INSERT INTO book (book_title,book_content,book_authors,book_date,book_publisher,book_price) VALUES(?,?,?,?,?,?)';
     let conn;
     try {
         conn = await pool.getConnection();
         const ret = await conn.query(sql, data);
         console.log(ret);
-        const todo_no = ret[0]['insertId'];
-        return todo_no;
+        const book_no = ret[0]['insertId'];
+        return book_no;
     } catch (error) {
         console.error(error);
     } finally {
