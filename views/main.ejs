@@ -17,14 +17,19 @@
           <th scope="col">책 출판사</th>
           <th scope="col">책 출판일</th>
           <th scope="col">책 가격</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <% books.forEach(function(item) { %>
           <tr>
-            <th><!-- Edit modal -->
+            <th>
+              <!-- Edit modal -->
               <a style="float: left;" class="edit" data-bs-toggle="modal"
-                data-bs-target="#editeModal<%= item.book_no%>"><%= item.book_title %></a> </th>
+                data-bs-target="#editeModal<%= item.book_no%>">
+                <%= item.book_title %>
+              </a>
+            </th>
             <td>
               <%= item.book_authors %>
             </td>
@@ -37,7 +42,44 @@
             <td>
               <%= item.book_price %> 원
             </td>
+            <td>
+              <button style="float: right;" type="button" class="btn btn-danger" data-bs-toggle="modal"
+                data-bs-target="#book_delete<%= item.book_no%>">삭제
+              </button>
+            </td>
           </tr>
+
+          <!-- delete Modal -->
+          <div class="modal fade" id="book_delete<%= item.book_no%>" tabindex="-1" aria-labelledby="book_delete"
+            aria-hidden="true">
+
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="book_delete">Book - 책 삭제</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/<%=item.book_no%>" method="get">
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label>
+                        <b>" <%= item.book_title %> "</b> 책을 삭제하시겠습니까?
+                      </label>
+                    </div>
+                    <div class="modalBtnDiv">
+                      &nbsp;
+                      <input style="float: right;margin-left: 10px;" type="submit" class="btn btn-danger"
+                        onclick="return confirm('삭제하시겠습니까?');" value="삭제" />
+                      &nbsp;
+                      <input style="float: right;" type="button" class="btn btn-secondary" value="Close"
+                        data-bs-dismiss="modal" />&nbsp;
+                    </div>
+                  </div>
+                  <form>
+
+              </div>
+            </div>
+          </div>
 
           <!-- Edit modal -->
           <div class="modal fade" id="editeModal<%= item.book_no%>" tabindex="-1" aria-labelledby="editeModalLabel"
@@ -86,8 +128,8 @@
                     <br>
                     <div class="modalBtnDiv">
                       &nbsp;
-                      <input style="float: right;margin-left: 10px;" type="submit" class="btn btn-primary" onclick="return confirm('수정하시겠습니까?');"
-                      value="수정" />
+                      <input style="float: right;margin-left: 10px;" type="submit" class="btn btn-primary"
+                        onclick="return confirm('수정하시겠습니까?');" value="수정" />
                       &nbsp;
                       <input style="float: right;" type="button" class="btn btn-secondary" value="Close"
                         data-bs-dismiss="modal" />&nbsp;
@@ -104,7 +146,7 @@
     </table>
   </div>
 
-  <!-- Modal -->
+  <!-- add Modal -->
   <div class="modal fade" id="book_add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
     <div class="modal-dialog">
@@ -153,6 +195,8 @@
       </div>
     </div>
   </div>
+
+
 
 
   <%-include('footer')%>
