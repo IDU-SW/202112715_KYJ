@@ -3,6 +3,7 @@
 
 <br>
 <img src="views/lib/main.JPG" alt="main"></img>
+<img src="views/lib/modal.png" alt="main"></img>
 <br>
 <br>
 
@@ -200,12 +201,6 @@
 |msg| | 성공/실패 메세지| 
 |data| | 책 입력 정보|
 | | book_no | 책 번호 |
-| | book_title | 책 제목 |
-| | book_content | 책 내용 |
-| | book_authors | 책 작가 |
-| | book_date | 책 출판일 |
-| | book_publisher | 책 출판사 |
-| | book_price | 책 가격 |
 <br>
 
 <b>메세지 예</b>
@@ -224,7 +219,7 @@
 
 |데이터 베이스| 
 |:---:| 
-|example|
+|sys|
 <br>
 
 |테이블명| 
