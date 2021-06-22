@@ -234,7 +234,7 @@
 |책 내용|book_content|varchar(255)|||| | 
 |책 작가|book_authors|varchar(255)|||| | 
 |책 출판사|book_publisher|varchar(255)|||| | 
-|책 출판일|boo_date|date|||| yyyy-mm-dd| 
+|책 출판일|book_date|date|||| yyyy-mm-dd| 
 |책 가격|book_price|int(11)|||| | 
 <br>
 
