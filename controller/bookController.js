@@ -27,7 +27,7 @@ exports.getBookList = async (req, res) => {
     console.log(bookList);
 
     if(bookList.length > 0){
-        res.send({
+        res.render('../views/main',{
             msg: 'select list success',
             data: bookList
         });
