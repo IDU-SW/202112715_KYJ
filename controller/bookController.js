@@ -8,7 +8,6 @@ const bookModel = require('../model/bookModel');
 exports.getBook = async (req, res) => {
     const book_no = req.params.id;
     const book = await bookModel.selectBook(book_no);
-    console.log(book.book_no);
 
     if(book){
         res.send({
