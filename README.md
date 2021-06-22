@@ -2,16 +2,22 @@
 ## 📚 책 정보 페이지
 
 <br>
+<img src="views/lib/main.JPG" alt="main"></img>
+<br>
 <br>
 
-## 🔗 AWS
-```
-http://15.165.131.181:3000/
-```
-###  ⚡통신규약
+
+### 🔗 AWS
+---
+<http://15.165.131.181:3000/>
+
+
+<br>
+
+####  ⚡통신규약
 ---
 
-### 📚 book 전체 조회
+#### 📚 book 전체 조회
 <br>
 
 | URL | 메소드 | 
@@ -33,7 +39,7 @@ http://15.165.131.181:3000/
 | | book_price | 책 가격 |
 <br>
 
-<b>메세지 예</b>
+> <b>메세지 예</b>
 ```json
 {
     "msg": "select list success",
