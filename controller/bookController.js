@@ -58,13 +58,6 @@ exports.postBookEdit = async (req, res) => {
     const book_price = req.body.book_price;
     const data = [book_title, book_content, book_authors, book_date, book_publisher, book_price, book_no];
 
-    // 입력 에러 처리
-    if (!book_title) {
-        res.sendStatus(400);
-        console.log("book edit fail");
-        return;
-    }
-    
     const ret = await bookModel.updateBook(data);
 
     if(ret){

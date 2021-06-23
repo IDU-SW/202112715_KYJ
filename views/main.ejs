@@ -59,23 +59,23 @@
                   <h5 class="modal-title" id="book_delete">Book - 책 삭제</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/delete/<%=item.book_no%>" method="get">
-                  <div class="modal-body">
-                    <div class="mb-3">
-                      <label>
-                        <b>" <%= item.book_title %> "</b> 책을 삭제하시겠습니까?
-                      </label>
-                    </div>
-                    <div class="modalBtnDiv">
-                      &nbsp;
-                      <input style="float: right;margin-left: 10px;" type="submit" class="btn btn-danger"
-                        onclick="return confirm('삭제하시겠습니까?');" value="삭제" />
-                      &nbsp;
-                      <input style="float: right;" type="button" class="btn btn-secondary" value="Close"
-                        data-bs-dismiss="modal" />&nbsp;
-                    </div>
+                <div class="modal-body">
+                  <form action="delete/<%=item.book_no%>" method="get">
+                  <div class="mb-3">
+                    <label>
+                      <b>" <%= item.book_title %> "</b> 책을 삭제하시겠습니까?
+                    </label>
                   </div>
-                  <form>
+                  <div class="modalBtnDiv">
+                    &nbsp;
+                    <input style="float: right;margin-left: 10px;" type="submit" class="btn btn-danger"
+                      onclick="return confirm('삭제하시겠습니까?');" value="삭제" />
+                    &nbsp;
+                    <input style="float: right;" type="button" class="btn btn-secondary" value="Close"
+                      data-bs-dismiss="modal" />&nbsp;
+                  </div>
+                  </form>
+                </div>
 
               </div>
             </div>
@@ -92,7 +92,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form class="form-inline" action="/<%=item.book_no%>" method="POST">
+                  <form action="<%=item.book_no%>" method="post">
                     <div class="mb-3">
                       <label for="book_title" class="col-form-label">title</label>
                       <input type="text" class="form-control" id="book_title" name="book_title"
