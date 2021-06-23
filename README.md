@@ -1,28 +1,47 @@
 # 202112715_KYJ
 ## 📚 책 정보 페이지
 
-### 🔗 Link
----
-
-- 조회(GET)/추가(POST) <br>
-AWS <http://15.165.131.181:3000/> 
-
-- 수정 (PUT/:id) / 삭제 (DELETE/:id) <br>
-POSTMAN <http://15.165.131.181:3000/:id>
-
-
-
 <br>
 <img src="views/lib/main.JPG" alt="main"></img>
 <img src="views/lib/modal.png" alt="main"></img>
 <br>
 <br>
 
+### 🔗 AWS
+---
+<br>
+
+ <http://15.165.131.181:3000/> 
+
+| URL | 메소드 | 설명 |
+|:---|:---|:--|
+|/|GET|전체 책 목록|
+|/|POST|책 추가|
+|/:id|POST|책 수정|
+|/delete/:id|GET|책 삭제|
+
+<br>
+
+### 🔗 POSTMAN
+---
+
+<http://15.165.131.181:3000/api>
+
+| URL | 메소드 | 설명 |
+|:---|:---|:--|
+|/api|GET|전체 책 목록|
+|/api/:id|GET|선택 책 목록|
+|/api/add|POST|책 추가|
+|/api:id|PUT|책 수정|
+|/api/:id|DELETE|책 삭제|
+
+
+
 
 
 <br>
 
-####  ⚡통신규약
+####  ⚡ 통신규약 (POSTMAN)
 ---
 
 #### 📚 book 전체 조회
@@ -30,7 +49,7 @@ POSTMAN <http://15.165.131.181:3000/:id>
 
 | URL | 메소드 | 
 |:---:|:---:|
-|/|GET|
+|/api|GET|
 <br>
 
 
@@ -82,7 +101,7 @@ POSTMAN <http://15.165.131.181:3000/:id>
 
 | URL | 메소드 | 
 |:---:|:---:|
-|/:id|GET|
+|/api/:id|GET|
 <br>
 
 
@@ -121,7 +140,7 @@ POSTMAN <http://15.165.131.181:3000/:id>
 
 | URL | 메소드 | 
 |:---:|:---:|
-|/|POST|
+|/api/add|POST|
 <br>
 
 
@@ -160,7 +179,7 @@ POSTMAN <http://15.165.131.181:3000/:id>
 
 | URL | 메소드 | 
 |:---:|:---:|
-|/:id|PUT|
+|/api/:id|PUT|
 <br>
 
 
@@ -199,7 +218,7 @@ POSTMAN <http://15.165.131.181:3000/:id>
 
 | URL | 메소드 | 
 |:---:|:---:|
-|/:id|DELETE|
+|/api/:id|DELETE|
 <br>
 
 

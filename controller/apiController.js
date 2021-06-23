@@ -5,13 +5,29 @@ const date = require('date-and-time');
 const bookModel = require('../model/bookModel');
 
 
+exports.getBook = async (req, res) => {
+    const book_no = req.params.id;
+    const book = await bookModel.selectBook(book_no);
+
+    if(book){
+        res.send({
+            msg: 'book select success',
+            data: book
+        });
+    } else {
+        res.send({
+            msg: 'book select fail'
+        });
+    }
+}
+
 exports.getBookList = async (req, res) => {
 
     const bookList = await bookModel.selectBookList();
     console.log(bookList);
 
-    if(bookList.length > 0){
-        res.render('../views/main',{
+    if(bookList){
+        res.send({
             msg: 'book select list success',
             data: bookList
         });
@@ -24,7 +40,6 @@ exports.getBookList = async (req, res) => {
 }
 
 exports.postBook = async (req, res) => {
-    console.log(req.body);
     const book_title = req.body.book_title;
     const book_content = req.body.book_content;
     const book_authors = req.body.book_authors;
@@ -33,14 +48,16 @@ exports.postBook = async (req, res) => {
     const book_price = req.body.book_price;
 
     const data = [book_title, book_content, book_authors, book_date, book_publisher, book_price];
-
-
+    console.log(data);
     const book_no = await bookModel.insertBook(data);
     console.log(book_no);
 
-    if(book_no > 0){
+    if(book_no){
         const book = await bookModel.selectBook(book_no);
-        res.redirect('/');
+        res.send({
+            msg: 'book insert success',
+            data: book
+        });
     } else {
         res.send({
             msg: 'book insert fail'
@@ -61,17 +78,21 @@ exports.postBookEdit = async (req, res) => {
     // 입력 에러 처리
     if (!book_title) {
         res.sendStatus(400);
-        console.log("book edit fail");
+        console.log("update fail");
         return;
     }
     
     const ret = await bookModel.updateBook(data);
 
     if(ret){
-        res.redirect('/');
+        const book = await bookModel.selectBook(book_no);
+        res.send({
+            msg: 'book update success',
+            data: book
+        });
     } else {
         res.send({
-            msg: 'book edit fail'
+            msg: 'api book update fail'
         });
     }
 }
@@ -82,7 +103,10 @@ exports.deleteBook = async(req, res) => {
     const ret = await bookModel.deleteBook(book_no);
 
     if(ret){
-        res.redirect('/');
+        res.send({
+            msg: 'book delete success',
+            data: book_no
+        });
     } else {
         res.send({
             msg: 'book delete fail'
