@@ -1,13 +1,6 @@
 # 202112715_KYJ
 ## 📚 책 정보 페이지
 
-<br>
-<img src="views/lib/main.JPG" alt="main"></img>
-<img src="views/lib/modal.png" alt="main"></img>
-<br>
-<br>
-
-
 ### 🔗 Link
 ---
 
@@ -16,6 +9,15 @@ AWS <http://15.165.131.181:3000/>
 
 - 수정 (PUT/:id) / 삭제 (DELETE/:id) <br>
 POSTMAN <http://15.165.131.181:3000/:id>
+
+
+
+<br>
+<img src="views/lib/main.JPG" alt="main"></img>
+<img src="views/lib/modal.png" alt="main"></img>
+<br>
+<br>
+
 
 
 <br>
